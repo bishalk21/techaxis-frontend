@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Alert, Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CustomInOutField } from "../../components/customInOutField/CustomInOutField";
 import { Footer } from "../../components/footer/Footer";
 import { Header } from "../../components/header/Header";
+import { insertAdmin } from "../../helper/axioshelper";
 
 export const AdminRegister = () => {
   const [form, setForm] = useState({});
+  const [response, setResponse] = useState({});
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -19,6 +22,8 @@ export const AdminRegister = () => {
     if (confirmPassword !== rest.password) {
       return alert("Passwords do not match");
     }
+    const result = await insertAdmin(rest);
+    setResponse(result);
   };
 
   const fields = [
@@ -87,6 +92,14 @@ export const AdminRegister = () => {
               Welcome to TechAxis. Please fill the form below to create an
               account.
             </small>
+            {response.message && (
+              <Alert
+                variant={response.status === "success" ? "success" : "danger"}
+              >
+                {" "}
+                {response.message}{" "}
+              </Alert>
+            )}
             <hr />
             {fields.map((item, i) => (
               <CustomInOutField {...item} key={i} onChange={handleOnChange} />
