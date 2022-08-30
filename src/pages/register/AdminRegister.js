@@ -87,7 +87,7 @@ export const AdminRegister = () => {
       <Container className="page-main">
         <div className="form">
           <Form onSubmit={handleOnSubmit}>
-            <h1>Sign Up</h1>
+            <h1 className="text-center bg-info p-3 br-5">Sign Up</h1>
             <small>
               Welcome to TechAxis. Please fill the form below to create an
               account.
