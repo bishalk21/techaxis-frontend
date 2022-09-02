@@ -133,7 +133,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>EDUSPACE</title>
+        <title>TechAxis</title>
       </Helmet>
       <div>
         <div className="Banner_Card">

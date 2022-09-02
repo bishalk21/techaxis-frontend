@@ -2,17 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { withRouter } from "react-router-dom";
 import { Input, Popover, Drawer, Badge, Button, Dropdown } from "antd";
-import {
-  CgShoppingCart,
-  AiOutlineSearch,
-  AiOutlineClose,
-  RiArrowDropDownLine,
-} from "react-icons/all";
+import { CgShoppingCart } from "react-icons/cg";
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import useWindowDimensions from "../../useWindowDimensions";
 import axios from "axios";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { useSelector, useDispatch } from "react-redux";
+import aa from "../images/PP.png";
+
 const Navbar = ({ match, history }) => {
   const { height, width } = useWindowDimensions();
   const [showsearch, setshowsearch] = useState(false);
@@ -139,11 +138,7 @@ const Navbar = ({ match, history }) => {
         </div>
         <div className="logo">
           <Link to="/">
-            <img
-              src="https://i.imgur.com/4jq68uE.png"
-              alt="Logo"
-              className="logo_header"
-            />
+            <img src={aa} alt="Logo" className="logo_header" />
           </Link>
         </div>
         {showicons && (
